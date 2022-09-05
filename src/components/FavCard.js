@@ -34,7 +34,7 @@ export const FavCard = () => {
                 if (listhero_main[i].primary_attr == e.target.value) {
                     listhero_filter.push(listhero_main[i])
                     setListhero(listhero_filter)
-                }
+                }   
             }
         }
     };

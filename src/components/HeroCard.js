@@ -46,11 +46,18 @@ export const HeroCard = () => {
     }
 
     const add_favourites = (hero) => {
-        console.log(hero);
-        const new_favourite_list = [...favourites_hero, hero]
-        setFavourites_hero(new_favourite_list)
-        savefav_to_localstorage(new_favourite_list)
-        toast.success('Add hero to Favourites list');
+        if (favourites_hero) {
+            let new_favourite_list = [...favourites_hero, hero]
+            setFavourites_hero(new_favourite_list)
+            savefav_to_localstorage(new_favourite_list)
+            toast.success('Add hero to Favourites list');
+        } else {
+            let new_favourite_list = [hero]
+            setFavourites_hero(new_favourite_list)
+            savefav_to_localstorage(new_favourite_list)
+            toast.success('Add hero to Favourites list');
+        }
+
     };
 
     const onSearch = (input) => {
@@ -73,12 +80,12 @@ export const HeroCard = () => {
         return (
             <Col xs={{ span: 20, offset: 2 }} sm={{ span: 12 }} md={{ span: 10, offset: 1 }} lg={{ span: 11, offset: 1 }} xl={{ span: 4, offset: 0 }} key={i}>
                 <Card
-                    title={<Link style={{ color: '#001529', fontWeight:'bold'}} to={"/" + hero.id + "/detail"}>{hero.localized_name}</Link>}
+                    title={<Link style={{ color: '#001529', fontWeight: 'bold' }} to={"/" + hero.id + "/detail"}>{hero.localized_name}</Link>}
                     hoverable
                     className={classes.site_card_wrapper__card_box}
                     bordered={true}
-                    cover={<img src={get_img + hero.img}/>}
-                    extra={<Button style={{backgroundColor:"white"}} shape="circle" icon={<HeartFilled />} size='large' onClick={() => add_favourites(hero)}/>}
+                    cover={<img src={get_img + hero.img} />}
+                    extra={<Button style={{ backgroundColor: "white" }} shape="circle" icon={<HeartFilled />} size='large' onClick={() => add_favourites(hero)} />}
                 >
                 </Card>
             </Col>
@@ -101,8 +108,8 @@ export const HeroCard = () => {
 
     return (
         <div className={classes.site_card_wrapper}>
-            <Row style={{ marginTop:15 }}>
-                <Col xl={{ span: 12, offset: 1 }} md={{ offset: 4 }} lg={{ span:8 ,offset:2}}>
+            <Row style={{ marginTop: 15 }}>
+                <Col xl={{ span: 12, offset: 1 }} md={{ offset: 4 }} lg={{ span: 8, offset: 2 }}>
                     <Space
                         className={classes.space}
                     >
@@ -115,7 +122,7 @@ export const HeroCard = () => {
                         </Radio.Group>
                     </Space>
                 </Col>
-                <Col xl={{ offset: 1 }} md={{ offset: 5 }} lg={{ span:8 ,offset:3}}>
+                <Col xl={{ offset: 1 }} md={{ offset: 5 }} lg={{ span: 8, offset: 3 }}>
                     <Space className={classes.space}>
                         <Search onSearch={onSearch} placeholder="Input name hero to search" enterButton="Search" size='large' />
                         <Button onClick={ClearSearch} type="ghost" size='large'>Clear</Button>
