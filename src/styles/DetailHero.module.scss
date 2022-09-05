@@ -1,0 +1,62 @@
+.site_layout_content {
+    min-height: 280px;
+    padding: 24px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #fff;
+}
+
+.grid_style {
+    width: 50%;
+    padding: 0px;
+    &__img{
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        display: flex !important;
+        align-items: center !important;
+        vertical-align: middle !important;
+    }
+    &__icon{
+        width: 100%;
+        max-width: 40px;
+        min-width: 20px;
+        height: auto;
+    }
+    &__icon_attack{
+        width: 100%;
+        max-width: 40px;
+        min-width: 20px;
+        height: auto;
+    }
+}
+
+.card_style {
+    width: 100%;
+    max-width: 2000px;
+    min-width: 20px;
+    height: auto;
+}
+
+.card_herostatus{
+    max-width: 400px;
+    height: auto;
+    text-align: 'center';
+    background-color: #001529;
+    color: white;
+    &__img_heroicon{
+        width: 100%;
+        max-width: 100px;
+        min-width: 20px;
+        height: auto;
+    }
+    &__bar_status{
+        width: 100%;
+        max-width: 200px;
+    }
+    &__bar_reg{
+        width: 100%;
+        max-width: 40px;
+        display: inline-block;
+    }
+}

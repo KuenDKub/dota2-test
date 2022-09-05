@@ -1,0 +1,37 @@
+.site_layout_content {
+    height: auto;
+    padding: 24px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #fff;
+    text-align: center;
+    h1{
+        font-size: 50px;
+    }
+}
+
+.site_card_wrapper{
+    padding-bottom: 120px;
+    &__card_box{
+        text-align: left;
+        margin: 40px 5px 40px 5px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 130px;
+    }
+    &__box{
+        height: 50px;
+        img{
+            width: 75%;
+            max-width: 40px;
+            min-width: 20px;
+            height: auto;
+            margin-top: 10px;
+        }
+    }
+}
+
+.space{
+    margin-top: 24px;
+}
+

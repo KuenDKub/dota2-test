@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import { ListHero } from './pages/ListHero';
+import { Navbar } from './components/Navbar';
+import { DetailHero } from './pages/DetailHero';
+import { FavHero } from './pages/FavHero';
+
+//toast
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <ToastContainer
+          autoClose={2000}
+          position="top-right"
+          className="toast-container"
+          toastClassName="dark-toast"
+        />
+        <Navbar />
+        <Routes>
+          <Route exact path='/' element={<ListHero />} />
+          <Route exact path='/:id/detail' element={<DetailHero />} />
+          <Route exact path='/my-favhero' element={<FavHero />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
